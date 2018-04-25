@@ -24,6 +24,11 @@ class About extends Component {
                 <Text>About</Text>
                 <Button
                     activeOpacity={1}
+                    onPress={() => { this.props.navigation.navigate('Deep'); }}
+                    title='Deep'
+                />
+                <Button
+                    activeOpacity={1}
                     onPress={() => {this.props.navigation.goBack();}}
                     title='Go Back'
                 />

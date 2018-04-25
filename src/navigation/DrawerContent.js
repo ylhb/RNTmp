@@ -6,6 +6,7 @@ import {
     Alert
 } from 'react-native';
 import { DrawerItems, NavigationActions } from 'react-navigation';
+import * as SQLite from '../database/db'
 
 class DrawerContent extends Component {
     static navigationOptions = (props) => {
@@ -38,19 +39,22 @@ class DrawerContent extends Component {
                 >
                     <TouchableNativeFeedback
                         onPress={() => {
-                            console.log(this.props)
+                            console.log(this.props);
                             Alert.alert(
                                 '确定要退出登录吗？',
                                 '',
                                 [
                                     { text: '取消', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-                                    { text: '确定', onPress: () => {
-                                        const resetAction = NavigationActions.reset({
-                                            index: 0,
-                                            actions: [NavigationActions.navigate({ routeName: 'Login' })],
-                                          });
-                                          this.props.navigation.dispatch(resetAction)
-                                    } },
+                                    {
+                                        text: '确定', onPress: () => {
+                                            SQLite.deleteParam('name');
+                                            const resetAction = NavigationActions.reset({
+                                                index: 0,
+                                                actions: [NavigationActions.navigate({ routeName: 'Login' })],
+                                            });
+                                            this.props.navigation.dispatch(resetAction);
+                                        }
+                                    },
                                 ],
                                 { cancelable: false }
                             )

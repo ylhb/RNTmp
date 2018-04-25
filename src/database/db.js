@@ -6,7 +6,9 @@
 /**
 * 字段说明--如需字段扩充请及时完善文档说明
 *
-* code: 用户编号
+* IPInUseKey: 当前使用的IP的Key
+* extranetIP: 外网IP
+* internalIP: 内网IP
 */
 
 import SQLite from 'react-native-sqlite-storage';

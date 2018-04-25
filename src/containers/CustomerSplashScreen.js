@@ -37,8 +37,11 @@ class SplashScreen extends Component {
                 try {
                     if (obj != null && Object.keys(obj).length !== 0) {
                         GlobalConfig.code = obj.code;
+                        for (attr in obj) {
+                            GlobalConfig[attr] = obj[attr];
+                        }
                         if (obj.name !== null && obj.name !== '' && obj.name !== undefined) {
-                            this.props.navigation.replace('Main');
+                            this.props.navigation.replace('Drawer');
                         } else {
                             this.props.navigation.replace('Login');
                         }

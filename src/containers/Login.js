@@ -10,8 +10,11 @@ import {
     Button,
     TouchableOpacity,
     ActivityIndicator,
-    Modal
+    Modal,
+    ToastAndroid
 } from 'react-native';
+import * as SQLite from '../database/db'
+import * as constant from '../config/constant';
 
 class Login extends Component {
     static navigationOptions = (props) => {
@@ -30,11 +33,13 @@ class Login extends Component {
     }
     doLogin() {
         console.log('doLogin');
+        ToastAndroid.show(constant.getURL(constant.login), ToastAndroid.SHORT);
         this.setState({ modalVisible: true });
+        SQLite.insertParam({name: 'name'});
         setTimeout(() => {
             this.setState({ modalVisible: false });
             this.props.navigation.replace('Drawer');
-        }, 1000 * 5);
+        }, 1000 * 2);
     }
     render() {
         const { loginBtnDisabled, code, password, modalVisible } = this.state;
@@ -89,7 +94,7 @@ class Login extends Component {
                         <View style={{ flexDirection: 'row', height: 25, width: '100%' }}>
                             <TouchableOpacity
                                 activeOpacity={1}
-                                onPress={() => { }}
+                                onPress={() => { this.props.navigation.navigate('IPSetting'); }}
                                 style={[{ position: "absolute", bottom: -10, right: 0 }]}
                             >
                                 <View>

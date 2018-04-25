@@ -5,3 +5,7 @@ include ':app'
 //sqlite
 include ':react-native-sqlite-storage'
 project(':react-native-sqlite-storage').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-sqlite-storage/src/android')
+
+//react-native-dialogs
+include ':react-native-dialogs'
+project(':react-native-dialogs').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-dialogs/android')

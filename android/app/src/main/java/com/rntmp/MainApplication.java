@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.pgsqlite.SQLitePluginPackage;  //import SQLite package
+import com.aakashns.reactnativedialogs.ReactNativeDialogsPackage; //import react-native-dialogs package
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -25,6 +26,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new SQLitePluginPackage(),   //register SQLite Plugin here
+          new ReactNativeDialogsPackage(),  //register react-native-dialogs Plugin here
           new MainReactPackage()
       );
     }

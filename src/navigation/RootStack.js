@@ -5,6 +5,8 @@ import CustomerSplashScreen from '../containers/CustomerSplashScreen';
 import Main from '../containers/Main';
 import Login from '../containers/Login';
 import About from '../containers/About';
+import IPSetting from '../containers/IPSetting';
+import Deep from '../containers/Deep';
 
 const DrawerStack = DrawerNavigator(
     {
@@ -13,6 +15,9 @@ const DrawerStack = DrawerNavigator(
         },
         About: {
             screen: About,
+        },
+        IPSetting: {
+            screen: IPSetting,
         }
     }, {
         // define customComponent here
@@ -25,11 +30,17 @@ export const RootStack = StackNavigator(
         CustomerSplashScreen: {
             screen: CustomerSplashScreen,
         },
+        Drawer: {
+            screen: DrawerStack
+        },
         Login: {
             screen: Login,
         },
-        Drawer: {
-            screen: DrawerStack
+        IPSetting: {
+            screen: IPSetting,
+        },
+        Deep: {
+            screen: Deep,
         }
     },
     {
